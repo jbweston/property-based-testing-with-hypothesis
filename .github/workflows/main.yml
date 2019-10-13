@@ -1,0 +1,17 @@
+name: build
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: jagregory/pandoc:latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Create the presentation
+      run: |
+        make online.html
+        mv online.html property-based-testing-with-hypothesis.html
+    - uses: actions/upload-artifact@v1
+      with:
+        name: presentation
+        path: property-based-testing-with-hypothesis.html
