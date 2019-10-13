@@ -24,5 +24,5 @@ reveal.js:
 clean:
 	rm -f online.html offline.html
 
-view: presentation.html
+view: offline.html
 	firefox $<
