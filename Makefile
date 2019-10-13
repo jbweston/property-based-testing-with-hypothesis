@@ -1,6 +1,17 @@
 REVEALJS_VERSION = 3.8.0
-presentation.html: presentation.md reveal.js
-	pandoc --to revealjs --standalone -V revealjs-url=./reveal.js -o $@ $<
+REVEALJS_THEME = solarized
+
+offline.html: presentation.md reveal.js
+	pandoc --to revealjs --standalone \
+	  -V theme=$(REVEALJS_THEME) \
+	  -V revealjs-url=./reveal.js \
+	  -o $@ $<
+
+online.html: presentation.md
+	pandoc --to revealjs --standalone \
+	  -V theme=$(REVEALJS_THEME) \
+	  -V revealjs-url=https://revealjs.com \
+	  -o $@ $<
 
 reveal.js:
 	curl -s -L https://github.com/hakimel/reveal.js/archive/$(REVEALJS_VERSION).tar.gz \
@@ -11,7 +22,7 @@ reveal.js:
 .PHONY: clean view
 
 clean:
-	rm presentation.html
+	rm -f online.html offline.html
 
 view: presentation.html
 	firefox $<

@@ -13,7 +13,12 @@ you can simply say:
 make
 ```
 
-This downloads `reveal.js` and builds a standalone HTML presentation, `presentation.html`.
+This downloads `reveal.js` and builds a standalone HTML presentation, `offline.html`.
+If you want to generate a presentation that uses `reveal.js` from a CDN, simply say:
+
+```
+make online.html
+```
 
 ## License
 
