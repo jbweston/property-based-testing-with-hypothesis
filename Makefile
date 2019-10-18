@@ -1,5 +1,5 @@
 REVEALJS_VERSION = 3.8.0
-REVEALJS_THEME = solarized
+REVEALJS_THEME = moon
 
 offline.html: presentation.md reveal.js
 	pandoc --to revealjs --standalone \
