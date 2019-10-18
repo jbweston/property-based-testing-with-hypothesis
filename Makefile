@@ -1,13 +1,13 @@
 REVEALJS_VERSION = 3.8.0
 REVEALJS_THEME = moon
 
-offline.html: presentation.md reveal.js
+offline.html: presentation.md reveal.js Makefile
 	pandoc --to revealjs --standalone \
 	  -V theme=$(REVEALJS_THEME) \
 	  -V revealjs-url=./reveal.js \
 	  -o $@ $<
 
-online.html: presentation.md
+online.html: presentation.md Makefile
 	pandoc --to revealjs --standalone \
 	  -V theme=$(REVEALJS_THEME) \
 	  -V revealjs-url=https://revealjs.com \
