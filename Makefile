@@ -5,12 +5,14 @@ offline.html: presentation.md reveal.js Makefile
 	pandoc --to revealjs --standalone \
 	  -V theme=$(REVEALJS_THEME) \
 	  -V revealjs-url=./reveal.js \
+	  --slide-level 2 \
 	  -o $@ $<
 
 online.html: presentation.md Makefile
 	pandoc --to revealjs --standalone \
 	  -V theme=$(REVEALJS_THEME) \
 	  -V revealjs-url=https://revealjs.com \
+	  --slide-level 2 \
 	  -o $@ $<
 
 reveal.js:
