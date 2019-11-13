@@ -48,7 +48,7 @@ def test_lowercase_idempotent(text):
 @given(st.randoms(), st.lists(st.integers()))
 def test_set_independent_of_order(rand, l):
     first_set = set(l)
-    rand.shuffle(l
+    rand.shuffle(l)
     second_set = set(l)
     assert first_set == second_set
 ```
